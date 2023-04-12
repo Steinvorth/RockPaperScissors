@@ -1,11 +1,12 @@
-let rock = "Rock";
-let paper = "Paper";
-let scissors = "Scissors";
+function getComputerChoice(arr){
+    
 
-function getComputerChoice(){
-    let arrayMoves = {rock, paper, scissors};
+    const compMoves = Math.floor(Math.random()* arrayMoves.length);
 
-    console.log(arrayMoves);
+    const selMove = arr[compMoves];
+    return selMove;
 }
+const arrayMoves = ["rock", "paper", "scissors"];
 
-getComputerChoice();
+const compSelMove = getComputerChoice(arrayMoves);
+console.log(compSelMove);
