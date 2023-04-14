@@ -11,7 +11,6 @@ function playRound(playerSelection, computerSelection){
     let playerScore = false;
 
     playerSelection = playerInput;
-    playerWin = playerScore;
 
     if(computerSelection === playerSelection){
         winner = `Tie! your opponent also chose ${computerSelection}`;
@@ -28,10 +27,14 @@ function playRound(playerSelection, computerSelection){
         winner = `You loose! ${computerSelection} beats ${playerInput}`
         playerWin = false;
     }
+    else if((playerInput ===! "rock") || (playerInput ===! "scissors") || (playerInput ===! "paper")){
+        winner = `You can't choose ${playerInput}!`
+    }
     else{
         winner = `You Win! ${playerInput} beats ${computerSelection}`
         playerWin = true;
     }
+    
 
     return playerSelection,computerSelection, winner;
 }
@@ -42,12 +45,12 @@ function game(){
     for(i = 0; i<5; i++){        
         console.log(playRound(playerSelection,computerSelection));
         if(playerWin = false){
-            oppSocre =+1;            
+            oppSocre = oppScore + 1;            
         }else{
-            playerScore =+ 1;
-        }
-        console.log(`Scores: ${playerScore} : ${oppSocre}`)
+            playerScore = playerScore + 1;
+        }        
     }
+    console.log(`Scores: ${playerScore} : ${oppSocre}`)
     
 }
 
@@ -56,6 +59,10 @@ function game(){
 const arrayMoves = ["rock", "paper", "scissors"];
 const computerSelection = getComputerChoice(arrayMoves);
 const playerSelection = "";
+
+//Score Vars?
 let winner = "";
-let playerWin
+let playerWin;
+
+//init game
 console.log(game());
