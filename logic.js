@@ -7,7 +7,7 @@ function getComputerChoice(arr){
 
 function playRound(playerSelection, computerSelection){  
 
-    let playerInput = prompt();
+    let playerInput = prompt().toLowerCase();
     let playerScore = false;
 
     playerSelection = playerInput;
@@ -27,7 +27,7 @@ function playRound(playerSelection, computerSelection){
         winner = `You loose! ${computerSelection} beats ${playerInput}`
         playerWin = false;
     }
-    else if((playerInput.isEqualTo("rock")) || (playerInput ===! "scissors") || (playerInput ===! "paper")){
+    else if(arrayMoves.indexOf(playerInput.toLowerCase()) === -1){
         winner = `You can't choose ${playerInput}!`
     }
     else{
@@ -42,9 +42,8 @@ function playRound(playerSelection, computerSelection){
 function game(){
     for(i = 0; i<5; i++){        
         console.log(playRound(playerSelection,computerSelection));
-        console.log(playerSelection);
     }
-    console.log(`Scores: ${playerScore} : ${oppSocre}`)
+    //console.log(`Scores: ${playerScore} : ${oppSocre}`)
     
 }
 
