@@ -82,11 +82,13 @@ let winner = "";
 let playerWin = 0;
 let opponentWin = 0;
 
-//Buttons
+//Buttons DOM
 const startGame = document.querySelector('#startGame');
 const rockMove = document.querySelector('#rock');
 const paperMove = document.querySelector('#paper');
 const scissorMove = document.querySelector('#scissors');
+
+//Winner and Scoreboard DOM
 
 //Event Listeners for Buttons
 startGame.addEventListener('click', function(playGame){
