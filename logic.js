@@ -70,7 +70,7 @@ function game(){
 //Computer move array, olayer check to not use random words
 const arrayMoves = ["rock", "paper", "scissors"];
 const computerSelection = getComputerChoice(arrayMoves);
-let playerSelection = "";
+//let playerSelection = [rockMove,paperMove,scissorMove];
 
 //Scores
 let winner = "";
@@ -81,9 +81,12 @@ let opponentWin = 0;
 const startGame = document.querySelector('#startGame');
 const rockMove = document.querySelector('#rock');
 const paperMove = document.querySelector('#paper');
-const scissorMove = document.querySelector('#scissor');
+const scissorMove = document.querySelector('#scissors');
 
 //Event Listeners for Buttons
+startGame.addEventListener('click', function(playGame){
+    console.log(game());
+});
 
 rockMove.addEventListener('click', function(choseRock){
     console.log("rock");
@@ -94,8 +97,10 @@ paperMove.addEventListener('click', function(chosePaper){
 });
 
 scissorMove.addEventListener('click', function(choseScissor){
-    console.log('scissor');
+    console.log('scissors');
 });
+
+let playerSelection = [rockMove,paperMove,scissorMove];
 
 
 
