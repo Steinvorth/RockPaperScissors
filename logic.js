@@ -77,5 +77,16 @@ let winner = "";
 let playerWin = 0;
 let opponentWin = 0;
 
+//Get button ID
+const startRoundBtn = document.getElementById("#playRound");
+const rock = document.getElementById("#rock");
+const paper = document.getElementById("#paper");
+const scissors = document.getElementById("#scissors");
+
+//Event Listeners for Buttons
+startRoundBtn.addEventListener("click", function(Trial){
+    startRoundBtn.addEventListener("text").innerHTML;
+});
+
 //init game
-console.log(game());
+//console.log(game());
