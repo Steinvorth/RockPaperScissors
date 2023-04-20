@@ -84,9 +84,7 @@ const paper = document.getElementById("#paper");
 const scissors = document.getElementById("#scissors");
 
 //Event Listeners for Buttons
-startRoundBtn.addEventListener("click", function(Trial){
-    startRoundBtn.addEventListener("text").innerHTML;
-});
+startRoundBtn.addEventListener("click", console.log(game()));
 
 //init game
 //console.log(game());
