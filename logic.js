@@ -49,10 +49,10 @@ function playRound(playerSelection, computerSelection){
 //Logic to start game, and announce winner at the end
 function game(){
     //for loop for 5 matches in a row.
-    for(i = 0; i<5; i++){        
-        console.log(playRound(playerSelection,computerSelection))
-        console.log(`Player: ${playerWin} vs Opponent: :${opponentWin}`);        
-    }   
+    // for(i = 0; i<5; i++){        
+    //     console.log(playRound(playerSelection,computerSelection))
+    //     console.log(`Player: ${playerWin} vs Opponent: :${opponentWin}`);        
+    // }   
 
     //Announce winner at end of match
     if(playerWin > opponentWin){
