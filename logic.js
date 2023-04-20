@@ -78,9 +78,25 @@ let playerWin = 0;
 let opponentWin = 0;
 
 //Buttons
-
+const startGame = document.querySelector('#startGame');
+const rockMove = document.querySelector('#rock');
+const paperMove = document.querySelector('#paper');
+const scissorMove = document.querySelector('#scissor');
 
 //Event Listeners for Buttons
+
+rockMove.addEventListener('click', function(choseRock){
+    console.log("rock");
+});
+
+paperMove.addEventListener('click', function(chosePaper){
+    console.log('paper');
+});
+
+scissorMove.addEventListener('click', function(choseScissor){
+    console.log('scissor');
+});
+
 
 
 //init game
