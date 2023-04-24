@@ -3,9 +3,6 @@ const startGame = document.querySelector('#startGame');
 const rockMove = document.querySelector('#rock');
 const paperMove = document.querySelector('#paper');
 const scissorMove = document.querySelector('#scissors');
-
-//Winner and Scoreboard DOM
-
 //Basic Opponent
 function getComputerChoice(arr){
     const compMoves = Math.floor(Math.random()* arrayMoves.length);
@@ -17,10 +14,11 @@ function getComputerChoice(arr){
 // logic to play game, choose move, determine score and winner message each round
 function playRound(playerSelection, computerSelection){  
     
-    const playerInput = function(){
-        if(rockMove.clicked == true){
+    function playerInput (){
+        if(rockMove){
             playerInput = arrayMoves[0];
         }
+        
     };
 
     //makes player input work.
