@@ -12,15 +12,19 @@ function getComputerChoice(arr){
 }
 
 //makes player input work.
-function playerInput (){
-    if(chooseRock === true){
-        playerSelection = arrayMoves[0];
+let playerSelection = function(){
+    let playerInput;
+        
+    if(rockMove.onclick == true){
+        playerInput = arrayMoves[0];
     }
-    
 };
 
 // logic to play game, choose move, determine score and winner message each round
 function playRound(playerSelection, computerSelection){ 
+
+    //player Input
+    playerSelection();
 
     //tie
     if(computerSelection === playerSelection){
@@ -74,7 +78,8 @@ function game(){
 //Computer move array, olayer check to not use random words
 const arrayMoves = ["rock", "paper", "scissors"];
 const computerSelection = getComputerChoice(arrayMoves);
-const playerSelection = '';
+//const playerSelection = '';
+//let playerInput = '';
 
 //player's move bool
 let chooseRock = false;
@@ -92,16 +97,25 @@ startGame.addEventListener('click', function(playGame){
 });
 
 rockMove.addEventListener('click', function(choseRock){
-    chooseRock = true;
+    for(let i = 0;i<1;i++){
+        chooseRock = true;
+        console.log("rock: "+chooseRock);
+    }
+    chooseRock = false;
+    console.log(chooseRock);
 });
 
 paperMove.addEventListener('click', function(chosePaper){
     choosePaper = true;
+    console.log("paper: "+choosePaper);
 });
 
 scissorMove.addEventListener('click', function(choseScissor){
-    choosePaper = true;
+    chooseScissors = true;
+    console.log("scissors:"+chooseScissors);
 });
 
 //init game
-console.log(game());
+console.log(chooseRock);
+console.log(choosePaper);
+console.log(chooseScissors);
