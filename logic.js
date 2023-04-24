@@ -3,6 +3,7 @@ const startGame = document.querySelector('#startGame');
 const rockMove = document.querySelector('#rock');
 const paperMove = document.querySelector('#paper');
 const scissorMove = document.querySelector('#scissors');
+
 //Basic Opponent
 function getComputerChoice(arr){
     const compMoves = Math.floor(Math.random()* arrayMoves.length);
@@ -11,23 +12,21 @@ function getComputerChoice(arr){
     return selectedMove;
 }
 
-//makes player input work.
-let playerSelection = function(){
-    let playerInput;
-        
-    if(rockMove.onclick == true){
-        playerInput = arrayMoves[0];
-    }
-};
-
 // logic to play game, choose move, determine score and winner message each round
 function playRound(playerSelection, computerSelection){ 
 
+    let playerInput = "";
     //player Input
-    playerSelection();
+    if(playerInput === ""){
+        if(rockMove.addEventListener('click',chooseRock)){
+            playerInput = playerMove;
+            playerSelection = playerInput;
+            console.log(playerInput);
+        }        
+    }
 
     //tie
-    if(computerSelection === playerSelection){
+    if(computerSelection === playerInput){
         winner = `Tie! your opponent also chose ${computerSelection}`;
     }
     //Computer wins
@@ -74,48 +73,31 @@ function game(){
     }
 }
 
+function chooseRock(){
+    playerMove = "rock";
+}
+
 
 //Computer move array, olayer check to not use random words
 const arrayMoves = ["rock", "paper", "scissors"];
 const computerSelection = getComputerChoice(arrayMoves);
-//const playerSelection = '';
-//let playerInput = '';
-
-//player's move bool
-let chooseRock = false;
-let choosePaper = false;
-let chooseScissors = false;
+const playerSelection = '';
+let playerMove;
 
 //Scores
 let winner = "";
 let playerWin = 0;
 let opponentWin = 0;
 
-// //Event Listeners for Buttons
-startGame.addEventListener('click', function(playGame){
-    console.log(game());
-});
+// //Event Listeners for Buttons DOM
+startGame.addEventListener('click', playRound);
 
-rockMove.addEventListener('click', function(choseRock){
-    for(let i = 0;i<1;i++){
-        chooseRock = true;
-        console.log("rock: "+chooseRock);
-    }
-    chooseRock = false;
-    console.log(chooseRock);
-});
+rockMove.addEventListener('click', chooseRock);
 
 paperMove.addEventListener('click', function(chosePaper){
-    choosePaper = true;
-    console.log("paper: "+choosePaper);
 });
 
 scissorMove.addEventListener('click', function(choseScissor){
-    chooseScissors = true;
-    console.log("scissors:"+chooseScissors);
 });
 
-//init game
-console.log(chooseRock);
-console.log(choosePaper);
-console.log(chooseScissors);
+
