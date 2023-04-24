@@ -1,3 +1,28 @@
+//Buttons DOM
+const startGame = document.querySelector('#startGame');
+const rockMove = document.querySelector('#rock');
+const paperMove = document.querySelector('#paper');
+const scissorMove = document.querySelector('#scissors');
+
+//Event Listeners for Buttons
+startGame.addEventListener('click', function(playGame){
+    console.log(game());
+});
+
+rockMove.addEventListener('click', function(choseRock){
+    console.log(arrayMoves[0]);
+});
+
+paperMove.addEventListener('click', function(chosePaper){
+    console.log(arrayMoves[1]);
+});
+
+scissorMove.addEventListener('click', function(choseScissor){
+    console.log(arrayMoves[2]);
+});
+
+//Winner and Scoreboard DOM
+
 //Basic Opponent
 function getComputerChoice(arr){
     const compMoves = Math.floor(Math.random()* arrayMoves.length);
@@ -9,12 +34,7 @@ function getComputerChoice(arr){
 // logic to play game, choose move, determine score and winner message each round
 function playRound(playerSelection, computerSelection){  
 
-
-    const playerInput = function(){
-        if(playerInput === rockMove){
-            console.log(`you chose ${rockMove}`);
-        }
-    };
+    let playerInput;
 
     //makes player input work.
     playerSelection = playerInput;
@@ -81,31 +101,6 @@ const computerSelection = getComputerChoice(arrayMoves);
 let winner = "";
 let playerWin = 0;
 let opponentWin = 0;
-
-//Buttons DOM
-const startGame = document.querySelector('#startGame');
-const rockMove = document.querySelector('#rock');
-const paperMove = document.querySelector('#paper');
-const scissorMove = document.querySelector('#scissors');
-
-//Winner and Scoreboard DOM
-
-//Event Listeners for Buttons
-startGame.addEventListener('click', function(playGame){
-    console.log(game());
-});
-
-rockMove.addEventListener('click', function(choseRock){
-    console.log("rock");
-});
-
-paperMove.addEventListener('click', function(chosePaper){
-    console.log('paper');
-});
-
-scissorMove.addEventListener('click', function(choseScissor){
-    console.log('scissors');
-});
 
 let playerSelection = '';
 
