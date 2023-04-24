@@ -1,9 +1,3 @@
-//Buttons DOM
-const startGame = document.querySelector('#startGame');
-const rockMove = document.querySelector('#rock');
-const paperMove = document.querySelector('#paper');
-const scissorMove = document.querySelector('#scissors');
-
 //Basic Opponent
 function getComputerChoice(arr){
     const compMoves = Math.floor(Math.random()* arrayMoves.length);
@@ -15,20 +9,11 @@ function getComputerChoice(arr){
 // logic to play game, choose move, determine score and winner message each round
 function playRound(playerSelection, computerSelection){ 
 
-    let playerInput;
-    //player Input
-    while(playerInput === ""){
-        if(rockMove.addEventListener('click',chooseRock)){
-            playerInput = playerMove;
-            playerSelection = playerInput;
-            console.log(playerInput);
-        }        
-    }
-
     //tie
-    if(computerSelection === playerInput){
+    if(computerSelection === playerSelection){
         winner = `Tie! your opponent also chose ${computerSelection}`;
     }
+
     //Computer wins
     else if(computerSelection === "rock" & playerInput === "scissors"){
         winner = `You loose! ${computerSelection} beats ${playerInput}`
@@ -43,13 +28,13 @@ function playRound(playerSelection, computerSelection){
         winner = `You loose! ${computerSelection} beats ${playerInput}`
         opponentWin = opponentWin + 1;
     }
+
     //Player win
     else{
         winner = `You Win! ${playerInput} beats ${computerSelection}`
         playerWin = playerWin+1;
     }
     
-
     return playerSelection,computerSelection, winner;
 }
 
@@ -73,34 +58,16 @@ function game(){
     }
 }
 
-function chooseRock(){
-    playerMove = "rock";
-}
-
-
 //Computer move array, olayer check to not use random words
 const arrayMoves = ["rock", "paper", "scissors"];
 const computerSelection = getComputerChoice(arrayMoves);
 let playerSelection;
-let playerMove;
 
-playerSelection = playerMove;
 
+playerInput.addEventListener('click',playRound);
 //Scores
 let winner = "";
 let playerWin = 0;
 let opponentWin = 0;
 
-// //Event Listeners for Buttons DOM
-startGame.addEventListener('click', game);
-
-rockMove.addEventListener('click', chooseRock);
-
-paperMove.addEventListener('click', function(chosePaper){
-});
-
-scissorMove.addEventListener('click', function(choseScissor){
-});
-
-console.log(playRound());
-
+console.log(game());
