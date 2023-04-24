@@ -17,10 +17,14 @@ function getComputerChoice(arr){
 // logic to play game, choose move, determine score and winner message each round
 function playRound(playerSelection, computerSelection){  
     
-    let playerInput;
+    const playerInput = function(){
+        if(rockMove.clicked == true){
+            playerInput = arrayMoves[0];
+        }
+    };
 
     //makes player input work.
-    playerSelection = playerInput;
+    playerSelection = playerInput();
 
     //tie
     if(computerSelection === playerSelection){
@@ -101,4 +105,4 @@ scissorMove.addEventListener('click', function(choseScissor){
 });
 
 //init game
-console.log(playRound());
+console.log(game());
