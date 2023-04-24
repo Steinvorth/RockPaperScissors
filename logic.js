@@ -39,39 +39,45 @@ function playRound(playerSelection, computerSelection){
 
 //Logic to start game, and announce winner at the end
 function game(playerSelection){
-    //for loop for 5 matches in a row.
-    for(i = 0; i<5; i++){
-        playRound();
-        console.log(`Player: ${playerWin} vs Opponent: :${opponentWin}`);        
-    }   
-    //Announce winner at end of match
-    if(playerWin > opponentWin){
-        console.log("You are the winner!!")
+    //Round Counter
+    
+
+    if(currentRound < 5){
+        const result = playRound(playerSelection, computerSelection);
+        console.log(result);        
+        console.log(`Player: ${playerWin} vs Opponent: :${opponentWin}`);
+        
+        currentRound++;
     }
-    else if(playerWin === opponentWin){
-        console.log("There has been a tie!");
-    }
-    else{
-        console.log("Your Opponent Wins!!")
-    }
+    if(currentRound === 5){
+        if(playerWin > opponentWin){
+            console.log("You are the winner!!")
+        }
+        else if(playerWin === opponentWin){
+            console.log("There has been a tie!");
+        }
+        else{
+            console.log("Your Opponent Wins!!")
+        }
+        currentRound = 0;
+        playerWin = 0;
+        opponentWin = 0;
+        
+    } 
 }
 
+//Button Inputs
 document.getElementById("rock").addEventListener("click", function(){
-    const playerSelection = "rock";
-    const result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    game("rock");
+    
 });
 
 document.getElementById("paper").addEventListener("click", function(){
-    const playerSelection = "paper";
-    const result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    game("paper");
 });
 
 document.getElementById("scissors").addEventListener("click", function(){
-    const playerSelection = "scissors";
-    const result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    game("scissors");
 });
 
 //Computer move array, olayer check to not use random words
@@ -82,3 +88,4 @@ const computerSelection = getComputerChoice(arrayMoves);
 let winner = "";
 let playerWin = 0;
 let opponentWin = 0;
+let currentRound = 0;
