@@ -7,31 +7,30 @@ function getComputerChoice(arr){
 }
 
 // logic to play game, choose move, determine score and winner message each round
-function playRound(playerSelection, computerSelection){ 
-
+function playRound(playerSelection, computerSelection){
     //tie
     if(computerSelection === playerSelection){
         winner = `Tie! your opponent also chose ${computerSelection}`;
     }
 
     //Computer wins
-    else if(computerSelection === "rock" & playerInput === "scissors"){
-        winner = `You loose! ${computerSelection} beats ${playerInput}`
+    else if(computerSelection === "rock" & playerSelection === "scissors"){
+        winner = `You loose! ${computerSelection} beats ${playerSelection}`
         opponentWin = opponentWin + 1;
 
     }
-    else if(computerSelection === "paper" & playerInput === "rock"){
-        winner = `You loose! ${computerSelection} beats ${playerInput}`
+    else if(computerSelection === "paper" & playerSelection === "rock"){
+        winner = `You loose! ${computerSelection} beats ${playerSelection}`
         opponentWin = opponentWin + 1;
     }
-    else if(computerSelection === "scissors" & playerInput === "paper"){
-        winner = `You loose! ${computerSelection} beats ${playerInput}`
+    else if(computerSelection === "scissors" & playerSelection === "paper"){
+        winner = `You loose! ${computerSelection} beats ${playerSelection}`
         opponentWin = opponentWin + 1;
     }
 
     //Player win
     else{
-        winner = `You Win! ${playerInput} beats ${computerSelection}`
+        winner = `You Win! ${playerSelection} beats ${computerSelection}`
         playerWin = playerWin+1;
     }
     
@@ -39,13 +38,12 @@ function playRound(playerSelection, computerSelection){
 }
 
 //Logic to start game, and announce winner at the end
-function game(){
+function game(playerSelection){
     //for loop for 5 matches in a row.
-    for(i = 0; i<5; i++){        
-        console.log(playRound(playerSelection,computerSelection))
+    for(i = 0; i<5; i++){
+        playRound();
         console.log(`Player: ${playerWin} vs Opponent: :${opponentWin}`);        
     }   
-
     //Announce winner at end of match
     if(playerWin > opponentWin){
         console.log("You are the winner!!")
@@ -58,16 +56,29 @@ function game(){
     }
 }
 
+document.getElementById("rock").addEventListener("click", function(){
+    const playerSelection = "rock";
+    const result = playRound(playerSelection, computerSelection);
+    console.log(result);
+});
+
+document.getElementById("paper").addEventListener("click", function(){
+    const playerSelection = "paper";
+    const result = playRound(playerSelection, computerSelection);
+    console.log(result);
+});
+
+document.getElementById("scissors").addEventListener("click", function(){
+    const playerSelection = "scissors";
+    const result = playRound(playerSelection, computerSelection);
+    console.log(result);
+});
+
 //Computer move array, olayer check to not use random words
 const arrayMoves = ["rock", "paper", "scissors"];
 const computerSelection = getComputerChoice(arrayMoves);
-let playerSelection;
 
-
-playerInput.addEventListener('click',playRound);
 //Scores
 let winner = "";
 let playerWin = 0;
 let opponentWin = 0;
-
-console.log(game());
