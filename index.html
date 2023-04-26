@@ -7,25 +7,34 @@
         <title>Document</title>
 
         <!-- Preparing for CSS -->
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
 
+        <!-- link to font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
         
     </head>
 
     <body>   
+        <!-- Scoreborad -->
+        <div id="results" class="score">
+            <p id="score"></p>
+            <div id="pop" class="popUp">
+                <p id="winner"></p>
+                <p id="rematch"></p>
+            </div>            
+        </div>
+
+        <div class="moves">
+            <p id="selectedMove"></p>
+        </div>
+
         <!-- User Buttons -->
-        <div id="gameContainer">
+        <div id="gameContainer" class="user">
             <button id="rock">rock</button>
             <button id="paper">paper</button>
             <button id="scissors">scissors</button>
 
-        </div>  
-        <!-- Scoreborad -->
-        <div id="results">
-            <p id="winner"></p>
-            <p id="score"></p>
-        </div>   
-        
+        </div>      
 
         <!-- JS Script -->
         <script src="logic.js" defer></script>
