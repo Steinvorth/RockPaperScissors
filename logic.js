@@ -45,7 +45,7 @@ function playRound(playerSelection, computerSelection){
 //Logic to start game, and announce winner at the end
 function game(playerSelection){
     //Round Counter
-    
+
     if(currentRound < 5){
         const result = playRound(playerSelection, computerSelection);
         console.log(result);      
@@ -63,10 +63,12 @@ function game(playerSelection){
         else if(playerWin === opponentWin){
             console.log("There has been a tie!");
             playWinner.textContent = "There has been a tie!";
+            rematch.textContent = "If you wish to play again, press a button";
         }
         else{
             console.log("Your Opponent Wins!!")
             playWinner.textContent = "Your Opponent Wins!!";
+            rematch.textContent = "If you wish to play again, press a button";
         }
         currentRound = 0;
         playerWin = 0;
@@ -99,5 +101,4 @@ score.textContent = (`Player: ${playerWin} vs Opponent: : ${opponentWin}`);
 let playWinner = document.getElementById("winner");
 const rematch = document.getElementById("rematch");
 const moves = document.getElementById("selectedMove");
-
 

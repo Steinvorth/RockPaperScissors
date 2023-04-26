@@ -3,6 +3,11 @@ html{
     
 }
 
+button{
+    font-family: 'Nunito', serif;
+    font-size: 24px;
+}
+
 .score{
     display: flex;
     border: 2px solid;
@@ -21,4 +26,19 @@ html{
     font-size: 30px;
     border: 2px solid;
     
+}
+
+.moves{
+    display: flex;
+    border: 2px solid;
+    font-family: 'Nunito', serif;
+    justify-content: center;
+    align-content: center;
+}
+
+.user{
+    display: flex;
+    border: 2px solid;
+    justify-content: space-around;
+    align-content: center;
 }
