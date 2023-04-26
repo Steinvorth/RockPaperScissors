@@ -53,27 +53,39 @@ function game(playerSelection){
         console.log(`Player: ${playerWin} vs Opponent: :${opponentWin}`);
         
         currentRound++;
+
+        if(popContainer.contains(playWinner || rematch)){
+            popContainer.removeChild(playWinner);
+            popContainer.removeChild(rematch);
+        }
     }
     if(currentRound === 5){
         if(playerWin > opponentWin){
             console.log("You are the winner!!")
             playWinner.textContent = "You are the winner!!";
             rematch.textContent = "If you wish to play again, press a button";
+            popContainer.appendChild(playWinner);
+            popContainer.appendChild(rematch);
         }
         else if(playerWin === opponentWin){
             console.log("There has been a tie!");
             playWinner.textContent = "There has been a tie!";
             rematch.textContent = "If you wish to play again, press a button";
+            popContainer.appendChild(playWinner);
+            popContainer.appendChild(rematch);
         }
         else{
             console.log("Your Opponent Wins!!")
             playWinner.textContent = "Your Opponent Wins!!";
             rematch.textContent = "If you wish to play again, press a button";
+            popContainer.appendChild(playWinner);
+            popContainer.appendChild(rematch);
+
         }
         currentRound = 0;
         playerWin = 0;
         opponentWin = 0;
-    } 
+    }
 }
 
 //Computer move array, olayer check to not use random words
@@ -98,7 +110,12 @@ const score = document.getElementById("score");
 score.textContent = (`Player: ${playerWin} vs Opponent: : ${opponentWin}`);
 
 //Winner DOM
-let playWinner = document.getElementById("winner");
-const rematch = document.getElementById("rematch");
 const moves = document.getElementById("selectedMove");
+const popContainer = document.querySelector("#pop");
+
+const playWinner = document.createElement('p');
+playWinner.classList.add('playWinner');
+
+const rematch = document.createElement('p');
+rematch.classList.add('rematch');
 
