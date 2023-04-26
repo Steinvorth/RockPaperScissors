@@ -44,8 +44,10 @@ function playRound(playerSelection, computerSelection){
 
 //Logic to start game, and announce winner at the end
 function game(playerSelection){
-    //Round Counter
+    //random computer selection
+    const computerSelection = getComputerChoice(arrayMoves);
 
+    //Round Counter
     if(currentRound < 5){
         const result = playRound(playerSelection, computerSelection);
         console.log(result);      
@@ -90,7 +92,7 @@ function game(playerSelection){
 
 //Computer move array, olayer check to not use random words
 const arrayMoves = ["rock", "paper", "scissors"];
-const computerSelection = getComputerChoice(arrayMoves);
+//const computerSelection = getComputerChoice(arrayMoves);
 
 //Scores
 let winner = "";
